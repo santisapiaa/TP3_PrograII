@@ -1,0 +1,11 @@
+package interfaces;
+
+public interface IPersona {
+	
+	String getDni();
+	void setDni(int dni);
+	
+	String getNombre();
+	void setNombre(String nombre);
+
+}

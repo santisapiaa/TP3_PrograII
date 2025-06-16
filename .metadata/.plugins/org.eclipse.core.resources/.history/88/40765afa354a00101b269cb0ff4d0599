@@ -1,0 +1,36 @@
+package modelo;
+import interfaces.IGrafo;
+import interfaces.INodo;
+import java.util.*;
+
+public class Grafo implements IGrafo{
+
+	private Map<Integer, Nodo> nodos = new HashMap<>();
+
+	@Override
+	public void agregarNodo(int valor) {
+		if (!nodos.containsKey(valor)) {
+			nodos.put(valor, new Nodo(valor));
+		}
+	}
+
+	@Override
+	public void agregarArista(int origen, int destino) {
+		if (nodos.containsKey(origen) && nodos.con)
+	}
+
+	@Override
+	public void mostrarMatrizAdyacencia() {
+		
+	}
+
+	@Override
+	public void bfs(int inicio) {
+		
+	}
+
+	@Override
+	public void dfs(int inicio) {
+		
+	}
+}

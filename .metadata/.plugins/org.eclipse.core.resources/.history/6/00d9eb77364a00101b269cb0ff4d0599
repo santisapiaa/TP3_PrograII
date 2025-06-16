@@ -1,0 +1,13 @@
+package interfaces;
+
+public interface IGrafo {
+
+	void agregarNodo(int valor);
+	void agregarArista(int origen, int destino);
+	
+	void mostrarMatrizAdyacencia();
+	
+	void bfs(int inicio);
+	void dfs(int inicio);
+	
+}
