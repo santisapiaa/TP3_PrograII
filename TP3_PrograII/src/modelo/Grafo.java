@@ -10,14 +10,14 @@ public class Grafo<T extends IObtenerId> implements IGrafo<T>{
 	private Map<Integer, Nodo> nodos = new HashMap<>();
 
 	@Override
-	public void agregarNodo(INodo<T> valor) {
+	public void agregarNodo(T valor) {
 		if (!nodos.containsKey(valor)) {
-			nodos.put(valor.getValor().getId(), new Nodo(valor));
+			nodos.put(valor.getId(), new Nodo(valor));
 		}
 	}
 
 	@Override
-	public void agregarArista(INodo<T> origen, INodo<T> destino) {
+	public void agregarArista(T origen, T destino) {
 		if (nodos.containsKey(origen) && nodos.containsKey(destino)) {
 			INodo<T> nodoOrigen =  nodos.get(origen);
 			INodo<T> nodoDestino = nodos.get(destino);
@@ -51,14 +51,14 @@ public class Grafo<T extends IObtenerId> implements IGrafo<T>{
 	}
 
 	@Override
-	public void bfs(INodo<T> inicio) {
+	public void bfs(T inicio) {
 		if(!nodos.containsKey(inicio)) return;
 		Set<Integer> visitados = new HashSet<>();
 		Queue<INodo<T>> cola = new LinkedList<>();
 		
 		INodo<T> nodoInicio = nodos.get(inicio);
 		cola.add(nodoInicio);
-		visitados.add(inicio.getValor().getId());
+		visitados.add(inicio.getId());
 		
 		System.out.println("Recorrido BFS: ");
 		
@@ -79,10 +79,26 @@ public class Grafo<T extends IObtenerId> implements IGrafo<T>{
 	}
 
 	@Override
-	public void dfs(INodo<T> inicio) {
-		
-	}
+	public void dfs(T inicio) {
+		if (!nodos.containsKey(inicio)) return; // precondición
 
-	
-	
+	     Set<Integer> visitados = new HashSet<>();
+	     System.out.println("Recorrido DFS:");
+	     dfsRec(nodos.get(inicio), visitados); //Pila!!!!
+	     System.out.println();
+	 }
+
+	// Función recursiva auxiliar para DFS
+	 private void dfsRec(INodo<T> actual, Set<Integer> visitados) {
+	     visitados.add(actual.getValor().getId());
+	     System.out.print(actual.getValor() + " ");
+	     
+	     List<INodo<T>> vecinos = actual.getVecinos();
+	     for (int i = vecinos.size() - 1; i >= 0; i--) {
+	         INodo<T> vecino = vecinos.get(i);
+	         if (!visitados.contains(vecino.getValor())) {
+	             dfsRec((INodo<T>) vecino, visitados);
+	         }
+	     }
+	 }	
 }

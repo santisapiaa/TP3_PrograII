@@ -1,0 +1,52 @@
+package test;
+
+import modelo.Grafo;
+import modelo.Persona;
+import interfaces.IGrafo;
+import interfaces.INodo;
+import interfaces.IPersona;
+
+public class TestGrafo {
+
+	public static void main(String[] args) {
+		
+		IPersona p1 = new Persona(1, "Alejo");
+		IPersona p2 = new Persona(2, "Santiago");
+		IPersona p3 = new Persona(3, "Enzo");
+		IPersona p4 = new Persona(4, "Tomas");
+		IPersona p5 = new Persona(5, "Zarate");
+		IPersona p6 = new Persona(6, "Bianchi");
+		IPersona p7 = new Persona(7, "Facundo");
+		IPersona p8 = new Persona(8, "Roman");
+		IPersona p9 = new Persona(9, "Tevez");
+		IPersona p10 = new Persona(10, "Montoro");
+		
+		IGrafo grafo = new Grafo();
+		
+		grafo.agregarNodo(p1);
+		grafo.agregarNodo(p2);
+		grafo.agregarNodo(p3);
+		grafo.agregarNodo(p4);
+		grafo.agregarNodo(p5);
+		grafo.agregarNodo(p6);
+		grafo.agregarNodo(p7);
+		grafo.agregarNodo(p8);
+		grafo.agregarNodo(p9);
+		grafo.agregarNodo(p10);
+		
+		grafo.agregarArista(p1, p2);
+		grafo.agregarArista(p1, p3);
+		grafo.agregarArista(p2, p3);
+		grafo.agregarArista(p3, p4);
+		grafo.agregarArista(p3, p5);
+		grafo.agregarArista(p5, p6);
+		grafo.agregarArista(p6, p7);
+		grafo.agregarArista(p6, p8);
+		grafo.agregarArista(p8, p9);
+		grafo.agregarArista(p9, p10);
+
+
+
+
+	}
+}

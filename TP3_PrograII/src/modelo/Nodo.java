@@ -38,13 +38,4 @@ public class Nodo<T> implements INodo<T>{
     public List<INodo<T>> getVecinos() {
         return vecinos;
     }
-
-}
-
-	
-
-
-	
-	
-
 }
